@@ -7,7 +7,7 @@ public static partial class Menu
 {
     public static void Start()
     {
-        Console.WriteLine("Добро пожаловать в симулятор гонок!");
+        ShowSuccessMessage("Добро пожаловать в симулятор гонок!");
         var raceType = GetRaceTypeFromConsole();
         var distance = GetDistanceFromConsole();
 
@@ -33,18 +33,26 @@ public static partial class Menu
             freeVehicles = freeVehicles
                 .Except(vehicles.Select(x => x))
                 .ToList();
-            DisplayAvailableVehicles(freeVehicles);
-
-            var input = Console.ReadLine();
-            if (input == "поехали")
-            {
-                break;
-            }
 
             bool isInputValid;
             do
             {
+                DisplayAvailableVehicles(freeVehicles);
+
                 Console.WriteLine("Введите номер ТС, чтобы добавить его в заезд:");
+                var input = Console.ReadLine();
+                if (input.ToLower() is "поехали")
+                {
+                    if (vehicles.Count is not 0)
+                    {
+                        return vehicles;
+                    }
+
+                    ShowErrorMessage("В гонке не зарегистрировано ни одно ТС!");
+                    isInputValid = false;
+                    continue;
+                }
+
                 isInputValid = int.TryParse(input, out var vehicleIndex);
 
                 if (isInputValid && vehicleIndex < freeVehicles.Count)
@@ -56,12 +64,14 @@ public static partial class Menu
                 {
                     isInputValid = false;
                     ShowErrorMessage("Данный ТС не найден!");
-                    input = Console.ReadLine();
+                }
+
+                if (freeVehicles.Count is 0)
+                {
+                    return vehicles;
                 }
             } while (!isInputValid);
         }
-
-        return vehicles;
     }
 
     private static IEnumerable<AirVehicle> PrepareStartAirRace()
@@ -76,11 +86,14 @@ public static partial class Menu
 
     private static void DisplayAvailableVehicles(IReadOnlyList<Vehicle> vehicles)
     {
-        Console.WriteLine("Доступные ТС для заезда:");
+        Console.WriteLine("------------------------");
+        ShowInfoMessage("Доступные ТС для заезда:");
         for (var i = 0; i < vehicles.Count; i++)
         {
             Console.WriteLine($"{i}. {vehicles[i].Name}");
         }
-        Console.WriteLine("Для начала гонки введите: поехали");
+
+        ShowSuccessMessage("Для начала гонки введите: поехали");
+        Console.WriteLine("------------------------");
     }
 }

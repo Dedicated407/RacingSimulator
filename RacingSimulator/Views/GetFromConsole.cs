@@ -11,7 +11,7 @@ public static partial class Menu
 
         do
         {
-            Console.WriteLine("Выберите желаемый тип гонки (введите цифру):\n1. Наземная;\n2. Воздушная;\n3. Для всех.");
+            ShowInfoMessage("Выберите желаемый тип гонки (введите цифру):\n1. Наземная;\n2. Воздушная;\n3. Для всех.");
             isRaceTypeValid = int.TryParse(Console.ReadLine(), out raceType);
 
             if (!Enum.IsDefined(typeof(RaceTypeEnum), raceType) || !isRaceTypeValid)
@@ -31,7 +31,7 @@ public static partial class Menu
 
         do
         {
-            Console.WriteLine("Введите дистанцию гонки:");
+            ShowInfoMessage("Введите дистанцию гонки:");
             isParseDistanceValid = int.TryParse(Console.ReadLine(), out distance);
             if (!isParseDistanceValid)
             {
