@@ -26,7 +26,7 @@ public static partial class Menu
     private static IEnumerable<GroundVehicle> PrepareToStartGroundRace()
     {
         var vehicles = new List<GroundVehicle>();
-        var freeVehicles = InitGroundVehicle();
+        var freeVehicles = InitGroundVehicles();
 
         while (true)
         {
@@ -41,7 +41,7 @@ public static partial class Menu
 
                 Console.WriteLine("Введите номер ТС, чтобы добавить его в заезд:");
                 var input = Console.ReadLine();
-                if (input.ToLower() is "поехали")
+                if (input?.ToLower() is "поехали")
                 {
                     if (vehicles.Count is not 0)
                     {
@@ -82,18 +82,5 @@ public static partial class Menu
     private static IEnumerable<Vehicle> PrepareStartCommonRace()
     {
         throw new NotImplementedException();
-    }
-
-    private static void DisplayAvailableVehicles(IReadOnlyList<Vehicle> vehicles)
-    {
-        Console.WriteLine("------------------------");
-        ShowInfoMessage("Доступные ТС для заезда:");
-        for (var i = 0; i < vehicles.Count; i++)
-        {
-            Console.WriteLine($"{i}. {vehicles[i].Name}");
-        }
-
-        ShowSuccessMessage("Для начала гонки введите: поехали");
-        Console.WriteLine("------------------------");
     }
 }

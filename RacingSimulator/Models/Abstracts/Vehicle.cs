@@ -10,5 +10,12 @@ public abstract class Vehicle
     /// <summary>
     /// скорость движения (в условных единицах)
     /// </summary>
-    public int Speed { get; protected init; }
+    protected int Speed { get; init; }
+
+    /// <summary>
+    /// Время пути
+    /// </summary>
+    /// <param name="distance">Путь, который необходимо преодолеть</param>
+    /// <returns>Время прохождения пути</returns>
+    public abstract int Go(int distance);
 }
