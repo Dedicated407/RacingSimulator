@@ -5,7 +5,7 @@ namespace RacingSimulator.Models.Players;
 /// <summary>
 /// Метла
 /// </summary>
-public class Broom : IAirTransport
+internal sealed class Broom : IAirVehicle
 {
     public int Speed { get; } = 15;
 

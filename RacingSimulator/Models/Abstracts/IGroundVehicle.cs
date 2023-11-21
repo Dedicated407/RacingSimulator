@@ -1,12 +1,7 @@
 ﻿namespace RacingSimulator.Models.Abstracts;
 
-public interface IGroundTransport
+public interface IGroundVehicle : IVehicle
 {
-    /// <summary>
-    /// скорость движения (в условных единицах)
-    /// </summary>
-    int Speed { get; }
-
     /// <summary>
     /// время движения до необходимого отдыха (в условных единицах)
     /// </summary>

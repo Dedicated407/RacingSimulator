@@ -5,18 +5,14 @@ namespace RacingSimulator.Models.Players;
 /// <summary>
 /// Ступа Бабы Яги
 /// </summary>
-internal sealed class BabaYagasHut : IGroundTransport
+internal sealed class BabaYagasHut : IAirVehicle
 {
-    private const int TimeRecovery = 20;
-
     public int Speed { get; } = 4;
 
-    public int TimeBeforeRest { get; } = 15;
+    public int AccelerationCoefficient { get; }
 
-    public int RestDuration { get; }
-
-    public BabaYagasHut(int numberOfStops)
+    public BabaYagasHut(int distance)
     {
-        RestDuration = numberOfStops * TimeRecovery;
+        AccelerationCoefficient = distance * 20;
     }
 }

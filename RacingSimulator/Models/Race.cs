@@ -1,6 +1,6 @@
 ﻿namespace RacingSimulator.Models;
 
-public class Race
+public class Race : IRace
 {
     private int _distance;
 
