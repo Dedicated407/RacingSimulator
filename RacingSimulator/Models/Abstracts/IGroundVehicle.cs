@@ -1,14 +1,14 @@
 ﻿namespace RacingSimulator.Models.Abstracts;
 
-public interface IGroundVehicle : IVehicle
+internal abstract class GroundVehicle : Vehicle
 {
     /// <summary>
     /// время движения до необходимого отдыха (в условных единицах)
     /// </summary>
-    int TimeBeforeRest { get; }
+    public int TimeBeforeRest { get; protected init; }
 
     /// <summary>
     /// длительность отдыха, которая зависит от порядкового номера остановки (условных единицах)
     /// </summary>
-    int RestDuration { get; }
+    public int RestDuration { get; protected init; }
 }

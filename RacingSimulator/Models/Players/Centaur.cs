@@ -1,9 +1,14 @@
-﻿namespace RacingSimulator.Models.Players;
+﻿using RacingSimulator.Models.Abstracts;
+
+namespace RacingSimulator.Models.Players;
 
 /// <summary>
 /// Кентавр
 /// </summary>
-public class Centaur
+internal sealed class Centaur : GroundVehicle
 {
-    
+    public Centaur()
+    {
+        Name = "Кентавр";
+    }
 }

@@ -1,9 +1,14 @@
-﻿namespace RacingSimulator.Models.Players;
+﻿using RacingSimulator.Models.Abstracts;
+
+namespace RacingSimulator.Models.Players;
 
 /// <summary>
 /// Летучий корабль
 /// </summary>
-public class FlyingShip
+internal sealed class FlyingShip : AirVehicle
 {
-    
+    public FlyingShip()
+    {
+        Name = "Летучий корабль";
+    }
 }

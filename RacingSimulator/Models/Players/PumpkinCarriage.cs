@@ -1,9 +1,14 @@
-﻿namespace RacingSimulator.Models.Players;
+﻿using RacingSimulator.Models.Abstracts;
+
+namespace RacingSimulator.Models.Players;
 
 /// <summary>
 /// Карета-тыква
 /// </summary>
-public class PumpkinCarriage
+internal sealed class PumpkinCarriage : GroundVehicle
 {
-    
+    public PumpkinCarriage()
+    {
+        Name = "Карета-тыква";
+    }
 }

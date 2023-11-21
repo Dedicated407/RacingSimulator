@@ -1,9 +1,9 @@
 ﻿namespace RacingSimulator.Models.Abstracts;
 
-public interface IAirVehicle : IVehicle
+internal abstract class AirVehicle : Vehicle
 {
     /// <summary>
     /// коэффициент ускорения (задается формулой, зависит от расстояния)
     /// </summary>
-    int AccelerationCoefficient { get; }
+    public int AccelerationCoefficient { get; protected init; }
 }

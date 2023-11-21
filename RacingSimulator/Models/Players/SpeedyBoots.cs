@@ -1,9 +1,14 @@
-﻿namespace RacingSimulator.Models.Players;
+﻿using RacingSimulator.Models.Abstracts;
+
+namespace RacingSimulator.Models.Players;
 
 /// <summary>
 /// Сапоги-скороходы
 /// </summary>
-public class SpeedyBoots
+internal sealed class SpeedyBoots : GroundVehicle
 {
-    
+    public SpeedyBoots()
+    {
+        Name = "Сапоги-скороходы";
+    }
 }
