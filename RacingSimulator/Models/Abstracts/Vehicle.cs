@@ -1,6 +1,6 @@
 ﻿namespace RacingSimulator.Models.Abstracts;
 
-internal abstract class Vehicle
+public abstract class Vehicle
 {
     /// <summary>
     /// Название ТС
