@@ -1,5 +1,6 @@
 ﻿using RacingSimulator.Models;
 using RacingSimulator.Models.Abstracts;
+using RacingSimulator.Models.Players;
 
 namespace RacingSimulator.Views;
 
@@ -9,19 +10,24 @@ public class Menu
     {
         Console.WriteLine("Добро пожаловать в симулятор гонок!");
         var distance = GetDistanceFromConsole();
+        List<Vehicle> vehicles;
 
         switch (GetRaceTypeFromConsole())
         {
             case 1:
-                StartGroundRace(distance);
+                vehicles = new List<Vehicle>(PrepareToStartGroundRace());
                 break;
             case 2:
-                StartAirRace();
+                vehicles = new List<Vehicle>(PrepareStartAirRace());
                 break;
             case 3:
-                StartRace();
+                vehicles = new List<Vehicle>(PrepareStartCommonRace());
                 break;
+            default:
+                throw new ArgumentException("Тип гонки не найден!");
         }
+
+        StartRace(vehicles, distance);
     }
 
     private static int GetRaceTypeFromConsole()
@@ -66,18 +72,76 @@ public class Menu
         return distance;
     }
 
-    private void StartGroundRace(int distance)
+    private static List<GroundVehicle> InitGroundVehicle()
     {
-        var racers = new List<IGroundVehicle>();
-        
+        return new List<GroundVehicle>
+        {
+            new Centaur(),
+            new HutOnChickenLegs(),
+            new PumpkinCarriage(),
+            new SpeedyBoots()
+        };
     }
 
-    private void StartAirRace()
+    private IEnumerable<GroundVehicle> PrepareToStartGroundRace()
     {
-        
+        var vehicles = new List<GroundVehicle>();
+        var freeVehicles = InitGroundVehicle();
+
+        while (true)
+        {
+            Console.WriteLine("Доступные ТС для заезда:");
+            freeVehicles = freeVehicles
+                .Except(vehicles.Select(x => x))
+                .ToList();
+            for (var i = 0; i < freeVehicles.Count; i++)
+            {
+                Console.WriteLine($"{i}. {freeVehicles[i].Name}");
+            }
+            Console.WriteLine("Для начала гонки введите: поехали");
+
+            var input = Console.ReadLine();
+            if (input == "поехали")
+            {
+                break;
+            }
+
+            bool isInputValid;
+            do
+            {
+                Console.WriteLine("Введите номер ТС, чтобы добавить его в заезд:");
+                isInputValid = int.TryParse(input, out var vehicleIndex);
+
+                if (isInputValid && vehicleIndex < freeVehicles.Count)
+                {
+                    vehicles.Add(freeVehicles[vehicleIndex]);
+                    freeVehicles.RemoveAt(vehicleIndex);
+                } 
+                else
+                {
+                    isInputValid = false;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(new ArgumentException("Данный ТС не найден!", nameof(vehicleIndex)));
+                    Console.ResetColor();
+                    input = Console.ReadLine();
+                }
+            } while (!isInputValid);
+        }
+
+        return vehicles;
     }
 
-    private void StartRace()
+    private IEnumerable<AirVehicle> PrepareStartAirRace()
+    {
+        throw new NotImplementedException();
+    }
+
+    private IEnumerable<Vehicle> PrepareStartCommonRace()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void StartRace(List<Vehicle> vehicles, int distance)
     {
         
     }
