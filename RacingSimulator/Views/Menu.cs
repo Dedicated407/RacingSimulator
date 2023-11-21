@@ -3,9 +3,9 @@ using RacingSimulator.Models.Abstracts;
 
 namespace RacingSimulator.Views;
 
-public partial class Menu
+public static partial class Menu
 {
-    public void Start()
+    public static void Start()
     {
         Console.WriteLine("Добро пожаловать в симулятор гонок!");
         var raceType = GetRaceTypeFromConsole();
@@ -23,7 +23,7 @@ public partial class Menu
         race.Simulate();
     }
 
-    private IEnumerable<GroundVehicle> PrepareToStartGroundRace()
+    private static IEnumerable<GroundVehicle> PrepareToStartGroundRace()
     {
         var vehicles = new List<GroundVehicle>();
         var freeVehicles = InitGroundVehicle();
@@ -64,12 +64,12 @@ public partial class Menu
         return vehicles;
     }
 
-    private IEnumerable<AirVehicle> PrepareStartAirRace()
+    private static IEnumerable<AirVehicle> PrepareStartAirRace()
     {
         throw new NotImplementedException();
     }
 
-    private IEnumerable<Vehicle> PrepareStartCommonRace()
+    private static IEnumerable<Vehicle> PrepareStartCommonRace()
     {
         throw new NotImplementedException();
     }

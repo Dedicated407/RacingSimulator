@@ -2,7 +2,7 @@
 
 namespace RacingSimulator.Views;
 
-public partial class Menu
+public static partial class Menu
 {
     private static int GetRaceTypeFromConsole()
     {

@@ -1,6 +1,6 @@
 ﻿namespace RacingSimulator.Views;
 
-public partial class Menu
+public static partial class Menu
 {
     private static void ShowErrorMessage(string message)
     {
