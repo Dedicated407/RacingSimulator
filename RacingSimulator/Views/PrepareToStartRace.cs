@@ -5,15 +5,27 @@ namespace RacingSimulator.Views;
 
 internal static partial class Menu
 {
-    private static IEnumerable<GroundVehicle> PrepareToStartGroundRace()
+    private static IEnumerable<AirVehicle> PrepareStartAirRace() =>
+        PrepareToStartRace(DataInitializer.InitAirVehicles());
+
+    private static IEnumerable<GroundVehicle> PrepareToStartGroundRace() => 
+        PrepareToStartRace(DataInitializer.InitGroundVehicles());
+
+    private static IEnumerable<Vehicle> PrepareStartCommonRace() =>
+        PrepareToStartRace(
+            DataInitializer.InitAirVehicles()
+                .Concat(DataInitializer.InitGroundVehicles().Cast<Vehicle>())
+        );
+
+    private static IEnumerable<T> PrepareToStartRace<T>(IEnumerable<T> vehiclesList) where T : Vehicle
     {
-        var vehicles = new List<GroundVehicle>();
-        var freeVehicles = DataInitializer.InitGroundVehicles();
+        var vehicles = new List<T>();
+        var freeVehicles = vehiclesList.ToList();
 
         while (true)
         {
             freeVehicles = freeVehicles
-                .Except(vehicles.Select(x => x))
+                .Except(vehicles)
                 .ToList();
 
             bool isInputValid;
