@@ -16,7 +16,7 @@ internal sealed class SpeedyBoots : GroundVehicle
         RestDuration = 0_0;
     }
 
-    public override int Go(int distance)
+    internal override long Go(int distance)
     {
         throw new NotImplementedException();
     }

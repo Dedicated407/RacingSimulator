@@ -7,7 +7,7 @@ namespace RacingSimulator.Models.Vehicles.Air;
 /// </summary>
 internal sealed class FlyingShip : AirVehicle
 {
-    public FlyingShip()
+    internal FlyingShip()
     {
         // TODO: обновить свойства
         Name = "Летучий корабль";
@@ -15,7 +15,7 @@ internal sealed class FlyingShip : AirVehicle
         AccelerationCoefficient = 0_0;
     }
 
-    public override int Go(int distance)
+    internal override long Go(int distance)
     {
         throw new NotImplementedException();
     }

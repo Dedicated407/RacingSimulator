@@ -4,9 +4,9 @@ using RacingSimulator.Services;
 
 namespace RacingSimulator.Views;
 
-public static partial class Menu
+internal static partial class Menu
 {
-    public static void Start()
+    internal static void Start()
     {
         ShowSuccessMessage("Добро пожаловать в симулятор гонок!");
         var raceType = GetRaceTypeFromConsole();
@@ -22,6 +22,7 @@ public static partial class Menu
 
         var race = new Race(vehicles, distance);
         race.Simulate();
+        race.Result();
     }
 
     private static IEnumerable<GroundVehicle> PrepareToStartGroundRace()

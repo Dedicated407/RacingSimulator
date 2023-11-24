@@ -1,19 +1,21 @@
 ﻿using RacingSimulator.Models.Abstracts;
+using RacingSimulator.Views;
 
 namespace RacingSimulator.Services;
 
-public class Race
+internal class Race
 {
     private readonly List<Vehicle> _vehicles;
     private readonly int _distance;
+    private Vehicle? _winner;
 
-    public Race(IEnumerable<Vehicle> vehicles, int distance)
+    internal Race(IEnumerable<Vehicle> vehicles, int distance)
     {
         _vehicles = new List<Vehicle>(vehicles);
         _distance = distance;
     }
 
-    public void Simulate()
+    internal void Simulate()
     {
         Console.WriteLine("------------------------");
         var raceResult = _vehicles.OrderBy(vehicle =>
@@ -24,14 +26,20 @@ public class Race
         });
         Console.WriteLine("------------------------");
 
-        var winner = raceResult.First();
-        Result(winner);
+        _winner = raceResult.First();
     }
 
-    private static void Result(Vehicle winner)
+    internal void Result()
     {
-        Console.WriteLine("------------------------");
-        Console.WriteLine($"Победитель: {winner.Name}");
-        Console.WriteLine("------------------------");
+        if (_winner != null)
+        {
+            Console.WriteLine("------------------------");
+            Console.WriteLine($"Победитель: {_winner.Name}");
+            Console.WriteLine("------------------------");
+        }
+        else
+        {
+            Menu.ShowErrorMessage("Гонка не была проведена!");
+        }
     }
 }

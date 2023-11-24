@@ -1,6 +1,6 @@
 ﻿namespace RacingSimulator.Services.Enums;
 
-public enum RaceTypeEnum
+internal enum RaceTypeEnum
 {
     Ground = 1,
     Air,

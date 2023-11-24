@@ -1,9 +1,8 @@
-﻿using RacingSimulator.Models;
-using RacingSimulator.Services.Enums;
+﻿using RacingSimulator.Services.Enums;
 
 namespace RacingSimulator.Views;
 
-public static partial class Menu
+internal static partial class Menu
 {
     private static int GetRaceTypeFromConsole()
     {

@@ -7,7 +7,7 @@ namespace RacingSimulator.Models.Vehicles.Air;
 /// </summary>
 internal sealed class BabaYagasHut : AirVehicle
 {
-    public BabaYagasHut()
+    internal BabaYagasHut()
     {
         // TODO: обновить свойства
         Name = "Ступа Бабы Яги";
@@ -15,7 +15,7 @@ internal sealed class BabaYagasHut : AirVehicle
         AccelerationCoefficient = 0_0;
     }
 
-    public override int Go(int distance)
+    internal override long Go(int distance)
     {
         throw new NotImplementedException();
     }

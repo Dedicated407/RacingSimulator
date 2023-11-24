@@ -2,7 +2,7 @@
 
 namespace RacingSimulator.Views;
 
-public static partial class Menu
+internal static partial class Menu
 {
     private static void DisplayAvailableVehicles(IReadOnlyList<Vehicle> vehicles)
     {

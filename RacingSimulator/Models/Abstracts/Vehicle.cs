@@ -5,17 +5,17 @@ public abstract class Vehicle
     /// <summary>
     /// Название ТС
     /// </summary>
-    public string Name { get; protected init; }
+    internal string Name { get; init; }
 
     /// <summary>
     /// скорость движения (в условных единицах)
     /// </summary>
-    protected int Speed { get; init; }
+    internal long Speed { get; init; }
 
     /// <summary>
     /// Время пути
     /// </summary>
     /// <param name="distance">Путь, который необходимо преодолеть</param>
     /// <returns>Время прохождения пути</returns>
-    public abstract int Go(int distance);
+    internal abstract long Go(int distance);
 }

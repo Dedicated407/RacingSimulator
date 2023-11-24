@@ -7,7 +7,7 @@ namespace RacingSimulator.Models.Vehicles.Air;
 /// </summary>
 internal sealed class FlyingCarpet : AirVehicle
 {
-    public FlyingCarpet()
+    internal FlyingCarpet()
     {
         // TODO: обновить свойства
         Name = "Ковер-самолет";
@@ -15,7 +15,7 @@ internal sealed class FlyingCarpet : AirVehicle
         AccelerationCoefficient = 0_0;
     }
 
-    public override int Go(int distance)
+    internal override long Go(int distance)
     {
         throw new NotImplementedException();
     }

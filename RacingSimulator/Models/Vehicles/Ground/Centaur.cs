@@ -7,7 +7,7 @@ namespace RacingSimulator.Models.Vehicles.Ground;
 /// </summary>
 internal sealed class Centaur : GroundVehicle
 {
-    public Centaur()
+    internal Centaur()
     {
         Name = "Кентавр";
         Speed = 10;
@@ -15,9 +15,9 @@ internal sealed class Centaur : GroundVehicle
         RestDuration = 15;
     }
 
-    public override int Go(int distance)
+    internal override long Go(int distance)
     {
-        var restCount = distance / Speed / TimeBeforeRest; // Количество остановок для отдыха
+        long restCount = distance / Speed / TimeBeforeRest; // Количество остановок для отдыха
         var totalRestDuration = 0;
 
         for (var i = 1; i <= restCount; i++)
@@ -26,7 +26,7 @@ internal sealed class Centaur : GroundVehicle
             totalRestDuration += RestDuration * i;
         }
 
-        var totalTime = distance / Speed + 1;
+        long totalTime = distance / Speed + 1;
         var totalTimeWithRest = totalTime + totalRestDuration;
 
         return totalTimeWithRest;

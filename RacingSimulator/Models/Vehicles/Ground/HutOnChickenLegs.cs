@@ -7,7 +7,7 @@ namespace RacingSimulator.Models.Vehicles.Ground;
 /// </summary>
 internal sealed class HutOnChickenLegs : GroundVehicle
 {
-    public HutOnChickenLegs()
+    internal HutOnChickenLegs()
     {
         Name = "Избушка на курьих ножках";
         Speed = 20;
@@ -15,7 +15,7 @@ internal sealed class HutOnChickenLegs : GroundVehicle
         RestDuration = 30;
     }
 
-    public override int Go(int distance)
+    internal override long Go(int distance)
     {
         var restCount = distance / Speed / TimeBeforeRest; // Количество остановок для отдыха
         var totalRestDuration = 0;

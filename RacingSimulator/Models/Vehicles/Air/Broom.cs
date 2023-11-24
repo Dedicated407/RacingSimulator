@@ -7,7 +7,7 @@ namespace RacingSimulator.Models.Vehicles.Air;
 /// </summary>
 internal sealed class Broom : AirVehicle
 {
-    public Broom()
+    internal Broom()
     {
         // TODO: обновить свойства
         Name = "Метла";
@@ -15,7 +15,7 @@ internal sealed class Broom : AirVehicle
         AccelerationCoefficient = 0_0;
     }
 
-    public override int Go(int distance)
+    internal override long Go(int distance)
     {
         throw new NotImplementedException();
     }

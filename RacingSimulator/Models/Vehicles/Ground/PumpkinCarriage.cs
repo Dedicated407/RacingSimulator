@@ -7,7 +7,7 @@ namespace RacingSimulator.Models.Vehicles.Ground;
 /// </summary>
 internal sealed class PumpkinCarriage : GroundVehicle
 {
-    public PumpkinCarriage()
+    internal PumpkinCarriage()
     {
         // TODO: обновить свойства
         Name = "Карета-тыква";
@@ -16,7 +16,7 @@ internal sealed class PumpkinCarriage : GroundVehicle
         RestDuration = 0_0;
     }
 
-    public override int Go(int distance)
+    internal override long Go(int distance)
     {
         throw new NotImplementedException();
     }
