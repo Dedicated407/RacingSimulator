@@ -14,8 +14,6 @@ internal sealed class FlyingShip : AirVehicle
         AccelerationCoefficient = 2;
     }
 
-    internal override long Go(short distance)
-    {
-        throw new NotImplementedException();
-    }
+    internal override long Go(short distance) => 
+        distance / Speed + (long)Math.Sqrt(distance) / (int)Math.Pow(AccelerationCoefficient, 2);
 }

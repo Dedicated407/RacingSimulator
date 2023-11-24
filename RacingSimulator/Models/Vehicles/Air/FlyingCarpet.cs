@@ -14,8 +14,6 @@ internal sealed class FlyingCarpet : AirVehicle
         AccelerationCoefficient = 6;
     }
 
-    internal override long Go(short distance)
-    {
-        throw new NotImplementedException();
-    }
+    internal override long Go(short distance) => 
+        distance / Speed + (long)Math.Sqrt(distance) / AccelerationCoefficient;
 }

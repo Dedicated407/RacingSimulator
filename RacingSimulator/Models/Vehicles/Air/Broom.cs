@@ -14,8 +14,6 @@ internal sealed class Broom : AirVehicle
         AccelerationCoefficient = 5;
     }
 
-    internal override long Go(short distance)
-    {
-        throw new NotImplementedException();
-    }
+    internal override long Go(short distance) => 
+        distance / (Speed * AccelerationCoefficient) + 1; // При условии если distance очень маленькое :-)))
 }

@@ -14,8 +14,6 @@ internal sealed class BabaYagasHut : AirVehicle
         AccelerationCoefficient = 4;
     }
 
-    internal override long Go(short distance)
-    {
-        throw new NotImplementedException();
-    }
+    internal override long Go(short distance) => 
+        Speed / (AccelerationCoefficient * (long)Math.Log(distance));
 }
