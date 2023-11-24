@@ -18,15 +18,17 @@ internal class Race
     internal void Simulate()
     {
         Console.WriteLine("------------------------");
+        Menu.ShowInfoMessage("Время каждого участника:");
         var raceResult = _vehicles.OrderBy(vehicle =>
         {
             var timeResult = vehicle.Go(_distance);
-            Console.WriteLine($"{vehicle.Name}: {timeResult} секунд");
+            var timeSpan = TimeSpan.FromSeconds(timeResult);
+            Console.WriteLine($"{vehicle.Name}: {timeSpan:hh\\:mm\\:ss}");
             return timeResult;
         });
-        Console.WriteLine("------------------------");
 
         _winner = raceResult.First();
+        Console.WriteLine("------------------------");
     }
 
     internal void Result()

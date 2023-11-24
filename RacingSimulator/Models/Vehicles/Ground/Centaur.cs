@@ -17,16 +17,16 @@ internal sealed class Centaur : GroundVehicle
 
     internal override long Go(int distance)
     {
-        long restCount = distance / Speed / TimeBeforeRest; // Количество остановок для отдыха
+        var restCount = distance / Speed / TimeBeforeRest; // Количество остановок для отдыха
         var totalRestDuration = 0;
 
         for (var i = 1; i <= restCount; i++)
         {
-            // Общая длительность отдыха, зависящая от порядкового номера остановки
+            // Общая длительность отдыха, зависящая от порядкового номера остановки (линейная зависимость)
             totalRestDuration += RestDuration * i;
         }
 
-        long totalTime = distance / Speed + 1;
+        var totalTime = distance / Speed;
         var totalTimeWithRest = totalTime + totalRestDuration;
 
         return totalTimeWithRest;

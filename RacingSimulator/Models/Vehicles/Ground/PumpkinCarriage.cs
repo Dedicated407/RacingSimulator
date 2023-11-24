@@ -9,15 +9,26 @@ internal sealed class PumpkinCarriage : GroundVehicle
 {
     internal PumpkinCarriage()
     {
-        // TODO: обновить свойства
         Name = "Карета-тыква";
-        Speed = 0_0;
-        TimeBeforeRest = 0_0;
-        RestDuration = 0_0;
+        Speed = 15;
+        TimeBeforeRest = 5;
+        RestDuration = 10;
     }
 
     internal override long Go(int distance)
     {
-        throw new NotImplementedException();
+        var restCount = distance / Speed / TimeBeforeRest; // Количество остановок для отдыха
+        var totalRestDuration = 0;
+
+        for (var i = 1; i <= restCount; i++)
+        {
+            // Квадратичное увеличение времени отдыха
+            totalRestDuration += RestDuration * i * i;
+        }
+
+        var totalTime = distance / Speed;
+        var totalTimeWithRest = totalTime + totalRestDuration;
+
+        return totalTimeWithRest;
     }
 }

@@ -18,15 +18,15 @@ internal sealed class HutOnChickenLegs : GroundVehicle
     internal override long Go(int distance)
     {
         var restCount = distance / Speed / TimeBeforeRest; // Количество остановок для отдыха
-        var totalRestDuration = 0;
+        long totalRestDuration = 0;
 
         for (var i = 1; i <= restCount; i++)
         {
             // Экспоненциальное увеличение времени отдыха
-            totalRestDuration += (int)Math.Pow(RestDuration, i);
+            totalRestDuration += (long)Math.Pow(RestDuration, i);
         }
 
-        var totalTime = distance / Speed + 1;
+        var totalTime = distance / Speed;
         var totalTimeWithRest = totalTime + totalRestDuration;
 
         return totalTimeWithRest;
