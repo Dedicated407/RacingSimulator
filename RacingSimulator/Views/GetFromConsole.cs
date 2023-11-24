@@ -24,15 +24,15 @@ internal static partial class Menu
         return raceType;
     }
 
-    private static int GetDistanceFromConsole()
+    private static short GetDistanceFromConsole()
     {
-        int distance;
+        short distance;
         bool isParseDistanceValid;
 
         do
         {
             ShowInfoMessage("Введите дистанцию гонки:");
-            isParseDistanceValid = int.TryParse(Console.ReadLine(), out distance);
+            isParseDistanceValid = short.TryParse(Console.ReadLine(), out distance);
             if (!isParseDistanceValid)
             {
                 ShowErrorMessage("Неверно указана дистанция!");

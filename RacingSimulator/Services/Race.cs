@@ -6,10 +6,10 @@ namespace RacingSimulator.Services;
 internal class Race
 {
     private readonly List<Vehicle> _vehicles;
-    private readonly int _distance;
+    private readonly short _distance;
     private Vehicle? _winner;
 
-    internal Race(IEnumerable<Vehicle> vehicles, int distance)
+    internal Race(IEnumerable<Vehicle> vehicles, short distance)
     {
         _vehicles = new List<Vehicle>(vehicles);
         _distance = distance;
@@ -22,8 +22,12 @@ internal class Race
         var raceResult = _vehicles.OrderBy(vehicle =>
         {
             var timeResult = vehicle.Go(_distance);
+
             var timeSpan = TimeSpan.FromSeconds(timeResult);
-            Console.WriteLine($"{vehicle.Name}: {timeSpan:hh\\:mm\\:ss}");
+            var totalDays = (int)timeSpan.TotalDays;
+            var remainingTime = timeSpan.Subtract(TimeSpan.FromDays(totalDays));
+
+            Console.WriteLine($"{vehicle.Name}: {totalDays} дней, {remainingTime:hh\\:mm\\:ss}");
             return timeResult;
         });
 

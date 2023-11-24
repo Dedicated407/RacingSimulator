@@ -10,7 +10,7 @@ public abstract class Vehicle
     /// <summary>
     /// скорость движения (в условных единицах)
     /// </summary>
-    internal long Speed { get; init; }
+    internal int Speed { get; init; }
 
     /// <summary>
     /// Время пути

@@ -10,9 +10,9 @@ internal sealed class HutOnChickenLegs : GroundVehicle
     internal HutOnChickenLegs()
     {
         Name = "Избушка на курьих ножках";
-        Speed = 20;
-        TimeBeforeRest = 10;
-        RestDuration = 30;
+        Speed = 120;
+        TimeBeforeRest = 40;
+        RestDuration = 12;
     }
 
     internal override long Go(int distance)
