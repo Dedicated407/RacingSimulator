@@ -1,6 +1,6 @@
 ﻿using RacingSimulator.Models.Abstracts;
 
-namespace RacingSimulator.Models;
+namespace RacingSimulator.Services;
 
 public class Race
 {

@@ -1,4 +1,4 @@
-﻿namespace RacingSimulator.Models;
+﻿namespace RacingSimulator.Services.Enums;
 
 public enum RaceTypeEnum
 {
