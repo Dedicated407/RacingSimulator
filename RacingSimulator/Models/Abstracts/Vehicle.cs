@@ -17,5 +17,5 @@ public abstract class Vehicle
     /// </summary>
     /// <param name="distance">Путь, который необходимо преодолеть</param>
     /// <returns>Время прохождения пути</returns>
-    internal abstract long Go(int distance);
+    internal abstract long Go(short distance);
 }

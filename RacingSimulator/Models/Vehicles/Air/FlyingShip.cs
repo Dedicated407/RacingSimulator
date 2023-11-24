@@ -9,13 +9,12 @@ internal sealed class FlyingShip : AirVehicle
 {
     internal FlyingShip()
     {
-        // TODO: обновить свойства
         Name = "Летучий корабль";
-        Speed = 0_0;
-        AccelerationCoefficient = 0_0;
+        Speed = 50;
+        AccelerationCoefficient = 2;
     }
 
-    internal override long Go(int distance)
+    internal override long Go(short distance)
     {
         throw new NotImplementedException();
     }

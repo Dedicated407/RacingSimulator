@@ -15,7 +15,7 @@ internal sealed class PumpkinCarriage : GroundVehicle
         RestDuration = 10;
     }
 
-    internal override long Go(int distance)
+    internal override long Go(short distance)
     {
         var restCount = distance / Speed / TimeBeforeRest; // Количество остановок для отдыха
         var totalRestDuration = 0;

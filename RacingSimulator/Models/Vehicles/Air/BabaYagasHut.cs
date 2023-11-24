@@ -9,13 +9,12 @@ internal sealed class BabaYagasHut : AirVehicle
 {
     internal BabaYagasHut()
     {
-        // TODO: обновить свойства
         Name = "Ступа Бабы Яги";
-        Speed = 0_0;
-        AccelerationCoefficient = 0_0;
+        Speed = 20;
+        AccelerationCoefficient = 4;
     }
 
-    internal override long Go(int distance)
+    internal override long Go(short distance)
     {
         throw new NotImplementedException();
     }

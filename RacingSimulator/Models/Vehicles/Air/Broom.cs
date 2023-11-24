@@ -9,13 +9,12 @@ internal sealed class Broom : AirVehicle
 {
     internal Broom()
     {
-        // TODO: обновить свойства
         Name = "Метла";
-        Speed = 0_0;
-        AccelerationCoefficient = 0_0;
+        Speed = 25;
+        AccelerationCoefficient = 5;
     }
 
-    internal override long Go(int distance)
+    internal override long Go(short distance)
     {
         throw new NotImplementedException();
     }

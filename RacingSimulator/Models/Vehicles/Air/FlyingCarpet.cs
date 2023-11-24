@@ -9,13 +9,12 @@ internal sealed class FlyingCarpet : AirVehicle
 {
     internal FlyingCarpet()
     {
-        // TODO: обновить свойства
         Name = "Ковер-самолет";
-        Speed = 0_0;
-        AccelerationCoefficient = 0_0;
+        Speed = 22;
+        AccelerationCoefficient = 6;
     }
 
-    internal override long Go(int distance)
+    internal override long Go(short distance)
     {
         throw new NotImplementedException();
     }
