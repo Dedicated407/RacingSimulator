@@ -7,7 +7,7 @@ namespace RacingSimulator.Models.Vehicles.Air;
 /// </summary>
 internal sealed class BabaYagasHut : AirVehicle
 {
-    public BabaYagasHut(int distance)
+    public BabaYagasHut()
     {
         // TODO: обновить свойства
         Name = "Ступа Бабы Яги";

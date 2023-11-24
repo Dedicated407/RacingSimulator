@@ -26,7 +26,7 @@ public static partial class Menu
     private static IEnumerable<GroundVehicle> PrepareToStartGroundRace()
     {
         var vehicles = new List<GroundVehicle>();
-        var freeVehicles = InitGroundVehicles();
+        var freeVehicles = DataInitializer.InitGroundVehicles();
 
         while (true)
         {

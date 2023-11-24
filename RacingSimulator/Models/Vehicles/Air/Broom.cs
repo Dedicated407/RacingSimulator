@@ -7,7 +7,7 @@ namespace RacingSimulator.Models.Vehicles.Air;
 /// </summary>
 internal sealed class Broom : AirVehicle
 {
-    public Broom(int distance)
+    public Broom()
     {
         // TODO: обновить свойства
         Name = "Метла";
