@@ -6,7 +6,7 @@ internal static partial class Menu
 {
     internal static void Start()
     {
-        ShowSuccessMessage("Добро пожаловать в симулятор гонок!");
+        MessageColor.Success("Добро пожаловать в симулятор гонок!");
         var raceType = GetRaceTypeFromConsole();
         var distance = GetDistanceFromConsole();
 

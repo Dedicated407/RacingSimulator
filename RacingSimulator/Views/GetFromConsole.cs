@@ -11,13 +11,13 @@ internal static partial class Menu
 
         do
         {
-            ShowInfoMessage("Выберите желаемый тип гонки (введите цифру):\n1. Наземная;\n2. Воздушная;\n3. Для всех.");
+            MessageColor.Info("Выберите желаемый тип гонки (введите цифру):\n1. Наземная;\n2. Воздушная;\n3. Для всех.");
             isRaceTypeValid = int.TryParse(Console.ReadLine(), out raceType);
 
             if (!Enum.IsDefined(typeof(RaceTypeEnum), raceType) || !isRaceTypeValid)
             {
                 isRaceTypeValid = false;
-                ShowErrorMessage("Тип гонки не найден!");
+                MessageColor.Error("Тип гонки не найден!");
             }
         } while (!isRaceTypeValid);
 
@@ -31,11 +31,11 @@ internal static partial class Menu
 
         do
         {
-            ShowInfoMessage("Введите дистанцию гонки:");
+            MessageColor.Info("Введите дистанцию гонки:");
             isParseDistanceValid = short.TryParse(Console.ReadLine(), out distance);
             if (!isParseDistanceValid)
             {
-                ShowErrorMessage("Неверно указана дистанция!");
+                MessageColor.Error("Неверно указана дистанция!");
             }
         } while (!isParseDistanceValid);
 

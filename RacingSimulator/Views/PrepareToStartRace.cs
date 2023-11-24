@@ -22,49 +22,35 @@ internal static partial class Menu
         var vehicles = new List<T>();
         var freeVehicles = vehiclesList.ToList();
 
-        while (true)
-        {
-            freeVehicles = freeVehicles
-                .Except(vehicles)
-                .ToList();
+        while (freeVehicles.Any())
+        { 
+            DisplayAvailableVehicles(freeVehicles);
 
-            bool isInputValid;
-            do
+            Console.WriteLine("Введите номер ТС, чтобы добавить его в заезд:");
+            var input = Console.ReadLine();
+            if (input?.ToLower() is "поехали")
             {
-                DisplayAvailableVehicles(freeVehicles);
-
-                Console.WriteLine("Введите номер ТС, чтобы добавить его в заезд:");
-                var input = Console.ReadLine();
-                if (input?.ToLower() is "поехали")
-                {
-                    if (vehicles.Count is not 0)
-                    {
-                        return vehicles;
-                    }
-
-                    ShowErrorMessage("В гонке не зарегистрировано ни одно ТС!");
-                    isInputValid = false;
-                    continue;
-                }
-
-                isInputValid = int.TryParse(input, out var vehicleIndex);
-
-                if (isInputValid && vehicleIndex < freeVehicles.Count)
-                {
-                    vehicles.Add(freeVehicles[vehicleIndex]);
-                    freeVehicles.RemoveAt(vehicleIndex);
-                }
-                else
-                {
-                    isInputValid = false;
-                    ShowErrorMessage("Данный ТС не найден!");
-                }
-
-                if (freeVehicles.Count is 0)
+                if (vehicles.Any())
                 {
                     return vehicles;
                 }
-            } while (!isInputValid);
+
+                MessageColor.Error("В гонке не зарегистрировано ни одно ТС!");
+                continue;
+            }
+
+            if (!int.TryParse(input, out var vehicleIndex) || 
+                vehicleIndex >= freeVehicles.Count ||
+                vehicleIndex < 0)
+            {
+                MessageColor.Error("Данный ТС не найден!");
+                continue;
+            }
+
+            vehicles.Add(freeVehicles[vehicleIndex]);
+            freeVehicles.RemoveAt(vehicleIndex);
         }
+
+        return vehicles;
     }
 }

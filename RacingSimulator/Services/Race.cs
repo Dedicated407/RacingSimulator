@@ -18,7 +18,7 @@ internal class Race
     internal void Simulate()
     {
         Console.WriteLine("------------------------");
-        Menu.ShowInfoMessage("Время каждого участника:");
+        MessageColor.Info("Время каждого участника:");
         var raceResult = _vehicles.OrderBy(vehicle =>
         {
             var timeResult = vehicle.Go(_distance);
@@ -45,7 +45,7 @@ internal class Race
         }
         else
         {
-            Menu.ShowErrorMessage("Гонка не была проведена!");
+            MessageColor.Error("Гонка не была проведена!");
         }
     }
 }
