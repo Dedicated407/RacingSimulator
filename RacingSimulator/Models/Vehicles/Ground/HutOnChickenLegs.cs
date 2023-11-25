@@ -17,7 +17,7 @@ internal sealed class HutOnChickenLegs : GroundVehicle
 
     internal override long Go(short distance)
     {
-        var restCount = distance / Speed / TimeBeforeRest; // Количество остановок для отдыха
+        var restCount = distance / TimeBeforeRest % Speed; // Количество остановок для отдыха
         long totalRestDuration = 0;
 
         for (var i = 1; i <= restCount; i++)
