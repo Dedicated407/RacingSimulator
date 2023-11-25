@@ -33,8 +33,9 @@ internal static partial class Menu
         {
             MessageColor.Info("Введите дистанцию гонки:");
             isParseDistanceValid = short.TryParse(Console.ReadLine(), out distance);
-            if (!isParseDistanceValid)
+            if (!isParseDistanceValid || distance is 0)
             {
+                isParseDistanceValid = false;
                 MessageColor.Error("Неверно указана дистанция!");
             }
         } while (!isParseDistanceValid);

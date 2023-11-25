@@ -10,10 +10,16 @@ internal sealed class Broom : AirVehicle
     internal Broom()
     {
         Name = "Метла";
-        Speed = 25;
+        Speed = 2;
         AccelerationCoefficient = 5;
     }
 
-    internal override long Go(short distance) => 
-        distance / (Speed * AccelerationCoefficient) + 1; // При условии если distance очень маленькое :-)))
+    internal override long Go(short distance)
+    {
+        var time = distance / (Speed * AccelerationCoefficient);
+        var totalTime = time is 0 ? 1 : time;
+        const int TimeToStart = 2;
+
+        return totalTime + TimeToStart;
+    }
 }
