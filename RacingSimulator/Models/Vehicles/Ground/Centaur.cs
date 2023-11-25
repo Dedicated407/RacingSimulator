@@ -10,7 +10,7 @@ internal sealed class Centaur : GroundVehicle
     internal Centaur()
     {
         Name = "Кентавр";
-        Speed = 10;
+        Speed = 2;
         TimeBeforeRest = 2;
         RestDuration = 15;
     }
@@ -26,8 +26,10 @@ internal sealed class Centaur : GroundVehicle
             totalRestDuration += RestDuration * i;
         }
 
-        var totalTime = distance / Speed;
-        var totalTimeWithRest = totalTime + totalRestDuration;
+        var time = distance / Speed;
+        var totalTime = time is 0 ? 1 : time;
+        const int timeToStart = 1;
+        var totalTimeWithRest = totalTime + totalRestDuration + timeToStart;
 
         return totalTimeWithRest;
     }

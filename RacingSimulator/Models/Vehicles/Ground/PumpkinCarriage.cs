@@ -10,7 +10,7 @@ internal sealed class PumpkinCarriage : GroundVehicle
     internal PumpkinCarriage()
     {
         Name = "Карета-тыква";
-        Speed = 15;
+        Speed = 4;
         TimeBeforeRest = 5;
         RestDuration = 10;
     }
@@ -27,7 +27,8 @@ internal sealed class PumpkinCarriage : GroundVehicle
         }
 
         var totalTime = distance / Speed;
-        var totalTimeWithRest = totalTime + totalRestDuration;
+        const int timeToStart = 3;
+        var totalTimeWithRest = totalTime + totalRestDuration + timeToStart;
 
         return totalTimeWithRest;
     }

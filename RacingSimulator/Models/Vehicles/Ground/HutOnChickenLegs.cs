@@ -10,7 +10,7 @@ internal sealed class HutOnChickenLegs : GroundVehicle
     internal HutOnChickenLegs()
     {
         Name = "Избушка на курьих ножках";
-        Speed = 120;
+        Speed = 6;
         TimeBeforeRest = 40;
         RestDuration = 12;
     }
@@ -26,8 +26,10 @@ internal sealed class HutOnChickenLegs : GroundVehicle
             totalRestDuration += (long)Math.Pow(RestDuration, i);
         }
 
-        var totalTime = distance / Speed;
-        var totalTimeWithRest = totalTime + totalRestDuration;
+        var time = distance / Speed;
+        var totalTime = time is 0 ? 1 : time;
+        const int timeToStart = 2;
+        var totalTimeWithRest = totalTime + totalRestDuration + timeToStart;
 
         return totalTimeWithRest;
     }

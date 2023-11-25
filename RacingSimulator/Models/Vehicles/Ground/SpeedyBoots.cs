@@ -10,8 +10,8 @@ internal sealed class SpeedyBoots : GroundVehicle
     internal SpeedyBoots()
     {
         Name = "Сапоги-скороходы";
-        Speed = 8;
-        TimeBeforeRest = 100;
+        Speed = 3;
+        TimeBeforeRest = 50;
         RestDuration = 10;
     }
 
@@ -26,8 +26,10 @@ internal sealed class SpeedyBoots : GroundVehicle
             totalRestDuration += RestDuration / i;
         }
 
-        var totalTime = distance / Speed;
-        var totalTimeWithRest = totalTime + totalRestDuration;
+        var time = distance / Speed;
+        var totalTime = time is 0 ? 1 : time;
+        const int timeToStart = 7;
+        var totalTimeWithRest = totalTime + totalRestDuration + timeToStart;
 
         return totalTimeWithRest;
     }
